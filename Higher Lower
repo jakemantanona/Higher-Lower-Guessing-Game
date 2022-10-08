@@ -1,0 +1,76 @@
+//Higher-Lower Guessing Game.
+
+
+//prompt for maximum user input.
+
+let input = prompt("Please input a maximum number to play Higher Lower.");
+
+    while (input < 1 || !Number(input)) {
+        alert("Invalid. Please re-enter a valid number.");
+        input = prompt("Please input a maximum number to play Higher Lower.");
+    }       if (input > 1 && Number(input)) {
+            input = Math.round(input);
+    }
+
+//console.log(input);  
+
+
+
+
+//generate random number between 1 and 20.
+let num = Math.floor(Math.random() * input) + 1;
+
+//console.log(num);
+
+
+//guess tracking.  
+let userGuesses = [];
+
+
+function do_guess() {
+
+    //guess given.
+    let guess = Number(document.getElementById("guess").value);
+
+    //message after guess.
+    let message = document.getElementById("message");
+
+                  
+    //message output.
+    if (guess == num ) {
+            //correct guess.
+            if (userGuesses.includes(guess) === false) 
+                userGuesses.push(guess);
+                message.innerHTML = `You got it! It took you ${userGuesses.length} tries and your guesses were ${userGuesses}`;
+
+        //not a number.
+        } else if (!Number(guess)) {
+            message.innerHTML = "That is not a number!";
+
+        //not in range.    
+        } else if (guess > input || guess < 1) {
+            message.innerHTML = "That number is not in range, try again.";
+
+        //lower.    
+        } else if (guess > num) {
+            message.innerHTML = "Think lower! Try again.";
+
+            //add number if it isn't already.
+            if (userGuesses.includes(guess) === false) 
+                userGuesses.push(guess);
+            else message.innerHTML = 'You already tried that number. Try again.';
+
+        //higher.    
+        } else if (guess < num && guess > 0) {
+            message.innerHTML = "Higher! Go again.";  
+
+            //add number if it isn't already.
+            if (userGuesses.includes(guess) === false) 
+                userGuesses.push(guess); 
+            else message.innerHTML = 'You already tried that number. Try again.';
+        } 
+
+    //console.log(userGuesses);
+    //console.log(userGuesses.length);  
+
+}
