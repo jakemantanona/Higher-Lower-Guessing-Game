@@ -17,7 +17,7 @@ let input = prompt("Please input a maximum number to play Higher Lower.");
 
 
 
-//generate random number between 1 and 20.
+//generate random number between 1 and user input.
 let num = Math.floor(Math.random() * input) + 1;
 
 //console.log(num);
