@@ -1,6 +1,6 @@
 //Higher-Lower Guessing Game.
 
-
+ 
 //prompt for maximum user input.
 
 let input = prompt("Please input a maximum number to play Higher Lower.");
